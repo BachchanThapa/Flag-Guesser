@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flag Guesser</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Background image is set in CSS (images/pic.jpg). -->
+
+    <main class="app" aria-live="polite">
+      <header class="top">
+        <h1>🌍 Flag Guesser 🌍</h1>
+        <div class="stats">
+          <div>Round: <span id="round">0</span>/5</div>
+          <div>Score: <span id="score">0</span></div>
+          <div>High score: <span id="highScore">0</span></div>
+        </div>
+      </header>
+
+      <!-- START SCREEN -->
+      <section id="screen-start" class="card visible" role="region" aria-labelledby="startTitle">
+        <h2 id="startTitle">Ready?</h2>
+        <p>Guess the country from its flag. 5 rounds. Click Start to play.</p>
+        <button id="btnStart" class="btn primary">Start</button>
+      </section>
+
+      <!-- GAME SCREEN -->
+      <section id="screen-game" class="card" role="region" aria-labelledby="gameTitle">
+        <h2 id="gameTitle" class="sr-only">Which country's flag is this?</h2>
+
+        <div class="flagBox">
+          <!-- We change this image each round -->
+          <img id="flagImg" src="" alt="Country flag to guess" />
+        </div>
+
+        <!-- We will inject 4 answer buttons here -->
+        <div id="options" class="options" role="group" aria-label="Choose the country"></div>
+
+        <!-- Short text feedback after each answer -->
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+      </section>
+
+      <!-- END SCREEN -->
+      <section id="screen-end" class="card" role="region" aria-labelledby="endTitle">
+        <h2 id="endTitle">🎉Results🎉</h2>
+        <p>You scored <strong><span id="finalScore">0</span>/5</strong>.</p>
+        <p>Best so far: <strong><span id="bestScore">0</span></strong></p>
+        <div class="end-actions">
+          <button id="btnRetry" class="btn">Play again</button>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <small>Resource Data: REST Countries 🗺️ Built with TypeScript</small>
+      </footer>
+    </main>
+
+    <!-- After compiling, TypeScript outputs JS into /dist -->
+    <script type="module" src="./dist/index.js"></script>
+  </body>
+</html>
