@@ -3,7 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-        "dev" : "tsc --watch"
-    }
+  "dev": "tsc -w",
+  "build": "tsc",
+  "preview": "npx http-server -c-1 -p 5173 ."
+}
+
 }
 
