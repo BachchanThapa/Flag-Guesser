@@ -1,8 +1,8 @@
 /* =====BASE===========*/
-* { 
+* {
   box-sizing: border-box;
   margin: 0;
-  padding: 0; 
+  padding: 0;
 }
 
 /* =========BACKGROUND================== */
@@ -12,11 +12,10 @@ body {
   background: url("./images/world.jpeg") center/cover no-repeat fixed;
 }
 
-
 /* ====HEADER ====== */
 .top {
   display: flex;
-  flex-direction: column;     /* title on top, stats below */
+  flex-direction: column; /* title on top, stats below */
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
@@ -42,48 +41,46 @@ body {
 /* ====CARD SHELL (used by screens)=== */
 .card {
   margin-inline: auto;
-  width: 800px;               /* fixed width (overridden in media below) */
-  height: 600px;              /* fixed height (overridden in media below) */
+  width: 800px; /* fixed width (overridden in media below) */
+  height: 600px; /* fixed height (overridden in media below) */
   background: rgba(245, 240, 240, 0.92);
   border-radius: 18px;
   padding: 1rem;
   box-shadow: 0 8px 24px rgb(75, 78, 243);
   display: none;
 }
-.card.visible { 
-  display: block; 
+.card.visible {
+  display: block;
   opacity: 95%;
 }
 
 /* ========START SCREEN====*/
 /*  ALL <p> globally.
   For only start screen: we use "#screen-start h2, #screen-start p" */
-#screen-start h2, p { 
-  text-align: center; 
+#screen-start h2,
+p {
+  text-align: center;
 }
-#screen-start p { 
-  text-align: center; 
+#screen-start p {
+  text-align: center;
   font-size: 1.2rem;
   font-weight: 600;
 }
 
-
-#screen-end h2 { 
-  text-align: center; 
+#screen-end h2 {
+  text-align: center;
   margin-bottom: 1rem;
 }
-#screen-end p { 
-  text-align: center; 
+#screen-end p {
+  text-align: center;
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
-
-
 
 /* center the whole start chunk inside its card */
 #screen-start.card.visible {
-  display: grid !important;   /* override .card.visible { display:block } */
+  display: grid !important; /* override .card.visible { display:block } */
   grid-auto-rows: min-content;
   justify-items: center;
   align-content: center;
@@ -95,15 +92,28 @@ body {
 /* ====GAME SCREEN====== */
 .flagBox {
   width: 100%;
-  aspect-ratio: 7/3;          /* your chosen ratio */
+  height: 325px;
+
   border-radius: 12px;
   overflow: hidden;
   border: 2px solid #ddd;
   background: #fff;
-  display: grid;
-  place-items: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   margin-bottom: 1.5rem;
 }
+
+.flagBox img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
 .options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -120,7 +130,8 @@ body {
   font-size: 1.2rem;
   cursor: pointer;
 }
-.btn:hover, .btn:focus {
+.btn:hover,
+.btn:focus {
   outline: none;
   transform: translateY(-1px);
   background-color: #e2ecec;
@@ -136,20 +147,27 @@ body {
   min-height: 1.5rem;
   margin-top: 1rem;
   font-weight: 800;
-  display: grid;              /* makes centering work */
+  display: grid; /* makes centering work */
   place-items: center;
   text-align: center;
 }
-.feedback.ok  { color: #16a34a; }   /* green */
-.feedback.bad { color: #dc2626; }   /* red */
+.feedback.ok {
+  color: #16a34a;
+} /* green */
+.feedback.bad {
+  color: #dc2626;
+} /* red */
 
-.end-actions { display: flex; gap: 0.5rem; }
+.end-actions {
+  display: flex;
+  gap: 0.5rem;
+}
 
 /* ======RESULTS SCREEN===== */
 #screen-end.card.visible {
-  display: grid !important;   /* beat .card.visible { display:block } */
-  place-items: center;        /* center each child horizontally + vertically */
-  place-content: center;      /* center the group within the card */
+  display: grid !important; /* beat .card.visible { display:block } */
+  place-items: center; /* center each child horizontally + vertically */
+  place-content: center; /* center the group within the card */
   text-align: center;
   min-height: 1rem;
   /* you can add gap/min-height here if you want equal spacing */
@@ -157,13 +175,13 @@ body {
 
 /* =====FOOTER======= */
 .foot {
-  position: fixed;        /* stick to the viewport bottom */
+  position: fixed; /* stick to the viewport bottom */
   left: 50%;
-  bottom: 12px;           /* tweak as you like */
+  bottom: 12px; /* tweak as you like */
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  justify-content: center;/* center the text */
+  justify-content: center; /* center the text */
   padding: 4px 8px;
   color: #f2f2f2;
   text-align: center;
@@ -172,16 +190,56 @@ body {
   z-index: 10;
 }
 
-
 /* ======RESPONSIVENESS====== */
 
 /* Make cards fluid on tablets & phones */
 @media (max-width: 900px) {
-  .card { width: 94vw; height: auto !important; }
+  .card {
+    width: 94vw;
+    height: auto !important;
+  }
 }
 
 /* Stack answer buttons on narrow phones */
 @media (max-width: 520px) {
-  .options { grid-template-columns: 1fr; }
-  .flagBox { aspect-ratio: 16 / 9; }
+  .top {
+    margin-top: 0.5rem;
+    gap: 0.2rem;
+  }
+
+  .top h1 {
+    font-size: 2.5rem;
+  }
+
+  .stats {
+    font-size: 0.9rem;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card {
+    width: 94vw;
+    padding: 0.75rem;
+  }
+
+  .flagBox {
+    height: 165px;
+    margin-bottom: 1rem;
+  }
+
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
+  .foot {
+    position: static;
+    transform: none;
+    margin: 1rem auto;
+    font-size: 1rem;
+  }
 }
