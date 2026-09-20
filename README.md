@@ -8,9 +8,6 @@ A responsive country flag guessing game built with **TypeScript, HTML and CSS**.
 
 The player gets 5 randomly generated flag questions, chooses from four countries, receives instant feedback, and can track their best score using localStorage.
 
-## 🚀 Live Demo
-
-[Play Flag Guesser](YOUR-VERCEL-URL)
 
 ## ✨ Features
 
